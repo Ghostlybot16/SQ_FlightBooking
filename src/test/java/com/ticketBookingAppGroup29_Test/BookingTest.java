@@ -1,21 +1,47 @@
-package com.ticketBookingAppGroup29_Test;
-import com.ticketBookingAppGroup29.*;
-import org.junit.Test;
+package QualityGroup.Flight_Booking_System;
+
+import com.flightbooking.model.Booking;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 public class BookingTest {
+
     @Test
-    void manageBookingDetails_ShouldSetDetails_WhenGivenFlightAndPreferences() {
+    void testId() {
         Booking booking = new Booking();
-        booking.manageBookingDetails(mockFlightDetails(), mockUserPreferences());
-        assertNotNull(booking.getBookingDetails());
+        Long id = 1L;
+        booking.setId(id);
+        assertEquals(id, booking.getId());
     }
 
-    // Mock methods for flight details and user preferences
-    private FlightDetails mockFlightDetails() {
-        // ... create and return mock FlightDetails ...
+    @Test
+    void testFlightNumber() {
+        Booking booking = new Booking();
+        String flightNumber = "ABC123";
+        booking.setFlightNumber(flightNumber);
+        assertEquals(flightNumber, booking.getFlightNumber());
+
+        assertThrows(NullPointerException.class, () -> booking.setFlightNumber(null));
     }
 
-    private UserPreferences mockUserPreferences() {
-        // ... create and return mock UserPreferences ...
+    @Test
+    void testPassengerName() {
+        Booking booking = new Booking();
+        String passengerName = "John Doe";
+        booking.setPassengerName(passengerName);
+        assertEquals(passengerName, booking.getPassengerName());
+
+        assertThrows(NullPointerException.class, () -> booking.setPassengerName(null));
+    }
+
+    @Test
+    void testBookingTime() {
+        Booking booking = new Booking();
+        LocalDateTime bookingTime = LocalDateTime.now();
+        booking.setBookingTime(bookingTime);
+        assertEquals(bookingTime, booking.getBookingTime());
+
+        assertNotNull(booking.getBookingTime());
     }
 }
