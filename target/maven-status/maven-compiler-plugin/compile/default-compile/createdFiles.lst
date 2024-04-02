@@ -1,0 +1,5 @@
+com\flightbooking\model\Flight.class
+com\flightbooking\controller\FlightController.class
+com\flightbooking\model\Booking.class
+com\flightbooking\service\FlightService.class
+com\flightbooking\FlightBookingApplication.class
